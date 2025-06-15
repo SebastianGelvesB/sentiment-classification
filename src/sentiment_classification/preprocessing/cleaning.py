@@ -1,6 +1,6 @@
 import re
 
-def clean_text(text: str) -> str:
+def clean_text(text) :
     """
     Función para realizar limpieza de datos en un tweet. Elimina urls, menicones, hastags y demás.
     """
