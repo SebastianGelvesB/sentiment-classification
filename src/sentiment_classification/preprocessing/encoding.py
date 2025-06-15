@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import joblib
 
-def encode_labels_train(y: pd.Series, save_path: str = None):
+def encode_labels_train(y, save_path = None):
     """
     Función para codificar las etiquetas categóricas con OrdinalEncoder.
     """
@@ -20,10 +20,15 @@ def encode_labels_train(y: pd.Series, save_path: str = None):
     return y_encoded, encoder
 
 
-def encode_labels_test(y: pd.Series, encoder_path: str):
+def encode_labels_test(y, encoder_path):
     """
     Codifica las etiquetas del conjunto de test usando un OrdinalEncoder ya entrenado.
     """
     encoder = joblib.load(encoder_path)
     y_encoded = encoder.transform(y.to_numpy().reshape(-1, 1)).astype(int).flatten()
     return y_encoded
+
+
+def decode_labels(y_encoded, encoder):
+    # Devuelve etiquetas en texto
+    return encoder.inverse_transform(np.array(y_encoded).reshape(-1, 1)).flatten()

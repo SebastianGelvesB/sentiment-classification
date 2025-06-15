@@ -1,6 +1,6 @@
 import pandas as pd
 
-def load_data(path:str) -> pd.DataFrame:
+def load_data(path):
     """
     Función para hacer la carga de datos desde un path
     """
