@@ -103,7 +103,7 @@ Se crean `DataLoader` para los datasets de entrenamiento, validación y prueba, 
 Se crea la función de pérdida para el modelo utilizando `CrossEntropyLoss` ponderada con pesos derivados de la frecuencia de clases en el dataset, usando `compute_class_weight` con la finalidad de tratar el desbalance de las clases.
 
 
-
+---
 
 ### Paso 5: Entrenamiento del modelo (fine-tuning)
 
@@ -190,6 +190,31 @@ Se calcula el `accuracy`, `F1 macro` y el `classification_report`. Los resultado
 **Función involucrada:**
 - `execute_modeling_pipeline`
 
-Esta función agrupa todos los pasos anteriores en una ejecución secuencial. Permite entrenar y evaluar un modelo completo con una llamada por cada una.
+Esta función orquesta todos los pasos anteriores en una ejecución secuencial. Permite entrenar y evaluar un modelo completo con una llamada por cada una.
 
 
+---
+
+## Conclusiones de los modelos
+
+---
+
+### BERT
+
+
+- Al observar la evolución del entrenamiento del modelo en los 3 epochs diferentes, vemos que tanto el `loss` como el `accuracy` mejoran con cada iteración. Esto implica que efectivamente el modelo aprende y no entra en zona de underfitting ni overfitting.
+
+- Al analizar la evaluación en el data de test del modelo BERT después de haberle realizado el proceso de fine-tuning, se obtienen resultados excelentes:
+
+    - `accuracy promedio = 0.85`: Esto implica que en el 85% de las predicciones realizadas sobre datos *no observados*, el modelo clasificó correctamente los tweets en su respectiva clase de `Sentiment`.
+
+    - `F1-score macro = 0.86`, `F1-score weighted = 0.85`: Estos valores indican un rendimiento sólido y consistente en todas las clases de `Sentiment`. Esto evidencia la efectidad de la función de pérdida ponderada cálculada, ya que equilibra el aprendizaje del modelo preveniendo sesgos por las clases mayoritarias.
+
+En resumen, el fine-tuning del modelo BERT presenta un performance muy bueno, demostrado por su alta capacidad de clasificar con alta precisión la clase de `Sentiment` de cada tweet.
+
+
+
+### RoBERTa
+
+
+### DistilBERT
