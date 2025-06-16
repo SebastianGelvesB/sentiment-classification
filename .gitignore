@@ -6,7 +6,5 @@ data/
 *.csv
 *.tsv
 
-# Env virtual
-.venv/
-env/
-venv/
+# Modelos
+models/
