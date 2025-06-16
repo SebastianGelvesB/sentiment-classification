@@ -223,3 +223,11 @@ En resumen, el fine-tuning del modelo BERT presenta un performance muy bueno, de
 
 
 ### DistilBERT
+
+- Este modelo presenta un performance excelente, muy similar al del modelo BERT. Durante el proceso de entrenamiento se evidencia el aprendizaje del modelo epoch tras epoch, sin caer ni en zona de under o overfitting, mostrado por el mejoramiento de ambas métricas `loss` y `accuracy` en cada iteración.
+
+- El `F1-Score macro = 0.85` y `Avg Accuracy = 0.84` evidencian de nuevo la robustez y precisión del modelo fine-tuneado para clasificar los tweets según su clase.
+
+----
+
+En este proyecto implementamos una metodología robusta y replicable para el entrenamiento de clasificadores de texto por medio del fine-tuning de modelos Transformers pre-entrenados, enfocándonos en la tarea de análisis de tweets y su respectiva clasificación de "sentimiento". A través de un pipeline modular se logró entrenar y evaluar distintos modelos como BERT, DistilBERT y RoBERTa, obteniendo resultados sobresalientes. En particular, se alcanzó un accuracy del 85% y un F1-score macro de 86% para BERT y DistilBERT, lo cual evidencia un excelente desempeño general y un balance en la clasificación entre categorías.
