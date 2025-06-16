@@ -1,10 +1,12 @@
 # Data
 data/
 
+# Modelos
+models/
+
 # Archivos temporales de notebooks
 *.ipynb_checkpoints
 *.csv
 *.tsv
 
-# Modelos
-models/
+
