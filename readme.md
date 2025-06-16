@@ -197,12 +197,13 @@ Esta función orquesta todos los pasos anteriores en una ejecución secuencial. 
 
 ## Conclusiones de los modelos
 
----
 
 ### BERT
 
 
-- Al observar la evolución del entrenamiento del modelo en los 3 epochs diferentes, vemos que tanto el `loss` como el `accuracy` mejoran con cada iteración. Esto implica que efectivamente el modelo aprende y no entra en zona de underfitting ni overfitting.
+- Al observar la evolución del entrenamiento del modelo a lo largo de los tres epochs, notamos que tanto `loss` como el `accuracy` mejoran consistentemente con cada iteración. Esto es una señal clara de que el modelo está aprendiendo de manera efectiva y, de momento, no estamos experimentando un underfitting.
+
+- Sin embargo, hay un detalle importante a considerar: en el último epoch, el valor de pérdida en el conjunto de validación muestra un ligero aumento en comparación con el epoch anterior, mientras que el valor de pérdida en el conjunto de entrenamiento sigue disminuyendo. Esta divergencia sugiere que podríamos estar adentrándonos en una zona de overfitting. 
 
 - Al analizar la evaluación en el data de test del modelo BERT después de haberle realizado el proceso de fine-tuning, se obtienen resultados excelentes:
 
