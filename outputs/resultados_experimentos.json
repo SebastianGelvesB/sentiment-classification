@@ -56,5 +56,63 @@
                 "support": 3798.0
             }
         }
+    },
+    {
+        "modelo": "roberta-base",
+        "hiperparametros": {
+            "model_name": "roberta-base",
+            "lr": 3e-05,
+            "weight_decay": 0.0001,
+            "batch_size": 4,
+            "epochs": 3,
+            "save_path": "../models/roberta_sentiment_analysis_model"
+        },
+        "accuracy": 0.2778,
+        "f1_macro": 0.1732,
+        "reporte_clasificacion": {
+            "Extremely Negative": {
+                "precision": 0.30498177399756987,
+                "recall": 0.847972972972973,
+                "f1-score": 0.4486148346738159,
+                "support": 592.0
+            },
+            "Negative": {
+                "precision": 0.3333333333333333,
+                "recall": 0.004803073967339097,
+                "f1-score": 0.00946969696969697,
+                "support": 1041.0
+            },
+            "Neutral": {
+                "precision": 0.25553983969825556,
+                "recall": 0.875605815831987,
+                "f1-score": 0.3956204379562044,
+                "support": 619.0
+            },
+            "Positive": {
+                "precision": 0.375,
+                "recall": 0.006335797254487857,
+                "f1-score": 0.012461059190031152,
+                "support": 947.0
+            },
+            "Extremely Positive": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 599.0
+            },
+            "accuracy": 0.2777777777777778,
+            "macro avg": {
+                "precision": 0.25377098940583176,
+                "recall": 0.34694353200535744,
+                "f1-score": 0.17323320575794968,
+                "support": 3798.0
+            },
+            "weighted avg": {
+                "precision": 0.2740530202685049,
+                "recall": 0.2777777777777778,
+                "f1-score": 0.14010732249083824,
+                "support": 3798.0
+            }
+        }
     }
 ]

@@ -217,5 +217,9 @@ En resumen, el fine-tuning del modelo BERT presenta un performance muy bueno, de
 
 ### RoBERTa
 
+- Al análizar las métricas de `loss` y `accuracy` durante el entrenamiento del modelo, se observa que mas métricas mejoran a medida que hacemos las epochs. Esto indica que el modelo aprende y no entra ni en overfitting ni underfitting.
+
+- Sin emabrgo, lás metricas de `F1-Score` y `Accuracy` están ambas por debajo de 0.30, lo cual indica un pésimo desempeño del modelo tanto en los datos de train, val, como en datos no observados previamente.
+
 
 ### DistilBERT
