@@ -1,12 +1,12 @@
 # Data
 data/
 
+# Modelos
+models/
+
 # Archivos temporales de notebooks
 *.ipynb_checkpoints
 *.csv
 *.tsv
 
-# Env virtual
-.venv/
-env/
-venv/
+

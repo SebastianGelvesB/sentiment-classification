@@ -1,0 +1,176 @@
+[
+    {
+        "modelo": "bert-base-uncased",
+        "hiperparametros": {
+            "model_name": "bert-base-uncased",
+            "lr": 3e-05,
+            "weight_decay": 0.0001,
+            "batch_size": 4,
+            "epochs": 3,
+            "save_path": "../models/bert_sentiment_analysis_model"
+        },
+        "accuracy": 0.8533,
+        "f1_macro": 0.8575,
+        "reporte_clasificacion": {
+            "Extremely Negative": {
+                "precision": 0.8496124031007752,
+                "recall": 0.9256756756756757,
+                "f1-score": 0.8860145513338723,
+                "support": 592.0
+            },
+            "Negative": {
+                "precision": 0.8656565656565657,
+                "recall": 0.8232468780019212,
+                "f1-score": 0.843919251600197,
+                "support": 1041.0
+            },
+            "Neutral": {
+                "precision": 0.8382126348228043,
+                "recall": 0.8788368336025848,
+                "f1-score": 0.8580441640378549,
+                "support": 619.0
+            },
+            "Positive": {
+                "precision": 0.8425110132158591,
+                "recall": 0.8078141499472017,
+                "f1-score": 0.8247978436657682,
+                "support": 947.0
+            },
+            "Extremely Positive": {
+                "precision": 0.8696369636963697,
+                "recall": 0.8797996661101837,
+                "f1-score": 0.8746887966804979,
+                "support": 599.0
+            },
+            "accuracy": 0.8533438651922064,
+            "macro avg": {
+                "precision": 0.853125916098475,
+                "recall": 0.8630746406675135,
+                "f1-score": 0.8574929214636381,
+                "support": 3798.0
+            },
+            "weighted avg": {
+                "precision": 0.8535395258580841,
+                "recall": 0.8533438651922064,
+                "f1-score": 0.8528678357051054,
+                "support": 3798.0
+            }
+        }
+    },
+    {
+        "modelo": "roberta-base",
+        "hiperparametros": {
+            "model_name": "roberta-base",
+            "lr": 3e-05,
+            "weight_decay": 0.0001,
+            "batch_size": 4,
+            "epochs": 3,
+            "save_path": "../models/roberta_sentiment_analysis_model"
+        },
+        "accuracy": 0.2778,
+        "f1_macro": 0.1732,
+        "reporte_clasificacion": {
+            "Extremely Negative": {
+                "precision": 0.30498177399756987,
+                "recall": 0.847972972972973,
+                "f1-score": 0.4486148346738159,
+                "support": 592.0
+            },
+            "Negative": {
+                "precision": 0.3333333333333333,
+                "recall": 0.004803073967339097,
+                "f1-score": 0.00946969696969697,
+                "support": 1041.0
+            },
+            "Neutral": {
+                "precision": 0.25553983969825556,
+                "recall": 0.875605815831987,
+                "f1-score": 0.3956204379562044,
+                "support": 619.0
+            },
+            "Positive": {
+                "precision": 0.375,
+                "recall": 0.006335797254487857,
+                "f1-score": 0.012461059190031152,
+                "support": 947.0
+            },
+            "Extremely Positive": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1-score": 0.0,
+                "support": 599.0
+            },
+            "accuracy": 0.2777777777777778,
+            "macro avg": {
+                "precision": 0.25377098940583176,
+                "recall": 0.34694353200535744,
+                "f1-score": 0.17323320575794968,
+                "support": 3798.0
+            },
+            "weighted avg": {
+                "precision": 0.2740530202685049,
+                "recall": 0.2777777777777778,
+                "f1-score": 0.14010732249083824,
+                "support": 3798.0
+            }
+        }
+    },
+    {
+        "modelo": "distilbert-base-uncased",
+        "hiperparametros": {
+            "model_name": "distilbert-base-uncased",
+            "lr": 3e-05,
+            "weight_decay": 0.0001,
+            "batch_size": 4,
+            "epochs": 3,
+            "save_path": "../models/distilbert_sentiment_analysis_model"
+        },
+        "accuracy": 0.8436,
+        "f1_macro": 0.8494,
+        "reporte_clasificacion": {
+            "Extremely Negative": {
+                "precision": 0.8470031545741324,
+                "recall": 0.9070945945945946,
+                "f1-score": 0.8760195758564437,
+                "support": 592.0
+            },
+            "Negative": {
+                "precision": 0.8333333333333334,
+                "recall": 0.8213256484149856,
+                "f1-score": 0.8272859216255443,
+                "support": 1041.0
+            },
+            "Neutral": {
+                "precision": 0.8709150326797386,
+                "recall": 0.8610662358642972,
+                "f1-score": 0.8659626320064988,
+                "support": 619.0
+            },
+            "Positive": {
+                "precision": 0.8240437158469945,
+                "recall": 0.7961985216473073,
+                "f1-score": 0.8098818474758325,
+                "support": 947.0
+            },
+            "Extremely Positive": {
+                "precision": 0.8592471358428805,
+                "recall": 0.8764607679465777,
+                "f1-score": 0.8677685950413223,
+                "support": 599.0
+            },
+            "accuracy": 0.8436018957345972,
+            "macro avg": {
+                "precision": 0.846908474455416,
+                "recall": 0.8524291536935525,
+                "f1-score": 0.8493837144011284,
+                "support": 3798.0
+            },
+            "weighted avg": {
+                "precision": 0.8433598488714149,
+                "recall": 0.8436018957345972,
+                "f1-score": 0.8432308058242746,
+                "support": 3798.0
+            }
+        }
+    }
+]
