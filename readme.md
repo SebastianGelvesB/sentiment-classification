@@ -15,6 +15,9 @@ El objetivo es clasificar cada tweet en una de las siguientes cinco categorías 
 - Positivo  
 - Extremadamente positivo
 
+
+## Estructura del proyecto
+
 El proyecto está estructurado de la siguiente manera:
 
 - `data`: En este folder se encuentran los datos raw, clean y procesados.
