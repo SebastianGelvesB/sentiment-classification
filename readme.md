@@ -2,6 +2,8 @@
 
 Este proyecto fue desarrollado como parte de un **challenge técnico para la posición de Data Scientist en Mercado Libre**.
 
+![Mercado Libre Logo](./assets/meli_logo.png)
+
 Consiste en implementar un modelo de clasificación de sentimientos utilizando arquitecturas Transformer preentrenadas — BERT, RoBERTa y DistilBERT — ajustadas mediante fine-tuning sobre un conjunto de datos de tweets relacionados con COVID-19.
 
 El objetivo es clasificar cada tweet en una de las siguientes cinco categorías de sentimiento:
