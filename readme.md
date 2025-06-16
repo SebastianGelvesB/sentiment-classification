@@ -12,6 +12,13 @@ El objetivo es clasificar cada tweet en una de las siguientes cinco categorías 
 - Positivo  
 - Extremadamente positivo
 
-El proyecto está estructurado de manera modular y profesional, siguiendo buenas prácticas de desarrollo en machine learning. Incluye componentes separados para el procesamiento de datos, entrenamiento de modelos, evaluación, comparación de resultados y trazabilidad de experimentos.
+El proyecto está estructurado de la siguiente manera:
 
-> En las siguientes secciones se incluirán las instrucciones para reproducir los experimentos y entrenar los modelos.
+- `data`: En este folder se encuentran los datos raw, clean y procesados.
+- `scripts`: Se encuentra el script que orquesta el preprocesamiento de los datos
+- `src`: Recopila los scripts desarrollados para llevar a cabo el procesamiento de datos de forma moludarizada
+- `notebooks`: Se encuentran los notebooks: 
+    *   `01_eda.ipynb`: Se desarrolla todo el EDA del dataset crudo
+    *   ``03_modeling.ipynb`: Se desarrolla todo el modelado estructurado de 3 diferentes modelos transformers (BERT, RoBERTa y DistilBERT). Adicionalmente se hace la respectiva evaluación de cada modelo y una comparación entre si.
+- `outputs`: Se encuentra el archivo `resultados_experimentos.json`, el cual lleva un tracking de todos los modelos que se entrenen y sus métricas.
+- `models`: En esta carpeta se guardan los modelos entrenados, siempre y cuand se setee `save_model=True`
