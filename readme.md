@@ -1,5 +1,7 @@
 # Clasificación de Sentimientos de Tweets con Modelos Transformer
 
+---
+
 ![Mercado Libre Logo](./assets/meli_logo.png)
 
 Este proyecto fue desarrollado como parte de un **challenge técnico para la posición de Data Scientist en Mercado Libre**.
@@ -14,6 +16,8 @@ El objetivo es clasificar cada tweet en una de las siguientes cinco categorías 
 - Neutral  
 - Positivo  
 - Extremadamente positivo
+
+---
 
 
 ## Estructura del proyecto
@@ -35,6 +39,8 @@ El proyecto está estructurado de la siguiente manera:
 
 - `models`: En esta carpeta se guardan los modelos entrenados, siempre y cuando se fije `save_model=True`
 
+---
+
 
 ## Instrucciones para ejecutar este proyecto
 
@@ -48,12 +54,14 @@ El proyecto está estructurado de la siguiente manera:
 
 5. Si fija `save_model=True`, podra acceder a los modelos guardados para su posterior uso.
 
+---
+
 
 ## Documentación del modelo
 
 A continuación, se describen los pasos principales del flujo de modelado, las funciones implementadas y su justificación técnica.
 
----
+
 
 ### Paso 1: Tokenización del texto
 
@@ -64,7 +72,7 @@ A continuación, se describen los pasos principales del flujo de modelado, las f
 La tokenización transforma el texto crudo en representaciones numéricas compatibles con los modelos Transformer. Se utiliza un tokenizador específico para cada arquitectura (`AutoTokenizer.from_pretrained(model_name)`), con truncamiento, padding y una longitud máxima de secuencia (`max_length=128`), definida con base en el análisis exploratorio.
 
 
----
+
 
 ### Paso 2: Conversión de datos a tensores
 
@@ -75,7 +83,7 @@ La tokenización transforma el texto crudo en representaciones numéricas compat
 Las etiquetas (`Sentiment`) se convierten en tensores, y junto con los `input_ids` y `attention_mask`, se agrupan en objetos `TensorDataset`, estructura de datos requerida para trabajar en PyTorch.
 
 
----
+
 
 ### Paso 3: Creación de DataLoaders
 
@@ -84,7 +92,7 @@ Las etiquetas (`Sentiment`) se convierten en tensores, y junto con los `input_id
 
 Se crean `DataLoader` para los datasets de entrenamiento, validación y prueba, permitiendo procesar los datos por lotes (`batch_size`) y barajarlos en el entrenamiento (`shuffle=True`).
 
----
+
 
 ### Paso 4: Definición de la función de pérdida
 
@@ -95,7 +103,7 @@ Se crean `DataLoader` para los datasets de entrenamiento, validación y prueba, 
 Se crea la función de pérdida para el modelo utilizando `CrossEntropyLoss` ponderada con pesos derivados de la frecuencia de clases en el dataset, usando `compute_class_weight` con la finalidad de tratar el desbalance de las clases.
 
 
----
+
 
 ### Paso 5: Entrenamiento del modelo (fine-tuning)
 
@@ -104,7 +112,7 @@ Se crea la función de pérdida para el modelo utilizando `CrossEntropyLoss` pon
 
 Durante esta etapa se realiza el fine-tuning del modelo Transformer preentrenado utilizando los datos previamente procesados y estructurados. El entrenamiento se ejecuta por ciclos (`epochs`) sobre el conjunto de entrenamiento, con evaluación al final de cada época sobre el conjunto de validación. Este proceso consta de varias subetapas clave:
 
----
+
 
 #### 1. Inicialización del modelo
 
@@ -113,7 +121,7 @@ Se utiliza la clase `AutoModelForSequenceClassification` de Hugging Face, que ca
 
 `model = AutoModelForSequenceClassification.from_pretrained(model_name,num_labels=5,return_dict=True)`
 
----
+
 
 #### 2. Definición del optimizador
 
@@ -121,7 +129,7 @@ Se define `AdamW`, una versión de Adam con weight decay desacoplado, como optim
 
 `optimizer = AdamW(model.parameters(),lr=lr, weight_decay=weight_decay)`
 
----
+
 
 #### 3. Definimos el scheduler 
 
@@ -135,14 +143,14 @@ scheduler = get_scheduler(
 )
 ````
 
----
+
 #### 4. Ciclo de entrenamiento y evaluación por epochs
 
 El modelo se entrena por epochs. En cada epoch se itera por batches sobre el conjunto de entrenamiento. Se realiza forward pass, cálculo de la pérdida, retropropagación, actualización de pesos y scheduler step. Luego, se evalúa el desempeño sobre el conjunto de validación.
 
 En detalle:
 
--`` model.train()`` activa los componentes de entrenamiento como dropout.
+- `` model.train()`` activa los componentes de entrenamiento como dropout.
 
 - ``zero_grad()`` previene acumulación de gradientes de pasos anteriores.
 
@@ -164,7 +172,7 @@ En detalle:
 
 Se guardan el modelo y el tokenizer en la ruta especificada, utilizando los métodos `save_pretrained`.
 
----
+
 
 ### Paso 7: Evaluación del modelo
 
@@ -175,7 +183,7 @@ Se guardan el modelo y el tokenizer en la ruta especificada, utilizando los mét
 Se calcula el `accuracy`, `F1 macro` y el `classification_report`. Los resultados se visualizan con una matriz de confusión y se guardan en un archivo `.json` para tener la trazabilidad de los experimentos realizados.
 
 
----
+
 
 ### Paso 8: Ejecución y orquestación del pipeline
 
@@ -184,4 +192,4 @@ Se calcula el `accuracy`, `F1 macro` y el `classification_report`. Los resultado
 
 Esta función agrupa todos los pasos anteriores en una ejecución secuencial. Permite entrenar y evaluar un modelo completo con una llamada por cada una.
 
----
+
