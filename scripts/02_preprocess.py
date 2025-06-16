@@ -22,8 +22,8 @@ df_train_clean['OriginalTweet'] = df_train_clean['OriginalTweet'].apply(clean_te
 df_test_clean['OriginalTweet'] = df_test_clean['OriginalTweet'].apply(clean_text)
 
 # Guardamos los datos limpios
-df_train_clean.to_csv('data/clean/train_clean.csv')
-df_test_clean.to_csv('data/clean/test_clean.csv')
+df_train_clean.to_csv('data/clean/train_clean.csv', index=False)
+df_test_clean.to_csv('data/clean/test_clean.csv', index=False)
 
 # Mensaje informando que se han guardado los datos limpios
 print('\n #### Los datos limpios han sido guardados en la carpeta /data/clean #### \n')
@@ -40,12 +40,16 @@ df_train_processed["Sentiment"], encoder = encode_labels_train(df_train_processe
 df_test_processed = df_test_clean.copy()
 df_test_processed["Sentiment"] = encode_labels_test(df_test_processed["Sentiment"], encoder_path="models/ordinal_encoder.pkl")
 
+# Aseguramos que son tipo texto
+df_train_processed['OriginalTweet'] = df_train_processed['OriginalTweet'].astype(str)
+df_test_processed['OriginalTweet'] = df_test_processed['OriginalTweet'].astype(str)
+
 # Mensaje informando que se han codificado los datos y guardado el encoder
 print('\n #### Los datos han sido codificados y el encoder se ha guardado en la carpeta /models #### \n')
 
 # Guardamos datos processed
-df_train_processed.to_csv('data/processed/train_encoded.csv')
-df_test_processed.to_csv('data/processed/test_encoded.csv')
+df_train_processed.to_csv('data/processed/train_encoded.csv', index=False)
+df_test_processed.to_csv('data/processed/test_encoded.csv', index=False)
 
 # Mensaje informando que se han guardado los datos encoded
 print('\n #### Los datos con la columna Sentiment codificada han sido guardados en la carpeta /data/processed #### \n')
